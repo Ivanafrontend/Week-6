@@ -9,6 +9,8 @@ import { HeaderComponent } from './header/header.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { ProductComponent } from './product/product.component';
 import { TableComponent } from './table/table.component';
+import { ShopingListComponent } from './shoping-list/shoping-list.component';
+import { HttpClientModule }    from '@angular/common/http';
 
 
 
@@ -19,12 +21,14 @@ import { TableComponent } from './table/table.component';
     HeaderComponent,
     CategoriesComponent,
     ProductComponent,
-    TableComponent
+    TableComponent,
+    ShopingListComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule
 
     
   ],
