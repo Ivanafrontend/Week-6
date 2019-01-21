@@ -11,6 +11,9 @@ import { ProductComponent } from './product/product.component';
 import { TableComponent } from './table/table.component';
 import { ShopingListComponent } from './shoping-list/shoping-list.component';
 import { HttpClientModule }    from '@angular/common/http';
+import { AddCategoryComponent } from './categories/add-category/add-category.component';
+import { EditCategoryComponent } from './categories/edit-category/edit-category.component';
+import { ServicesService } from './services.service';
 
 
 
@@ -22,7 +25,9 @@ import { HttpClientModule }    from '@angular/common/http';
     CategoriesComponent,
     ProductComponent,
     TableComponent,
-    ShopingListComponent
+    ShopingListComponent,
+    AddCategoryComponent,
+    EditCategoryComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +37,7 @@ import { HttpClientModule }    from '@angular/common/http';
 
     
   ],
-  providers: [],
+  providers: [ServicesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

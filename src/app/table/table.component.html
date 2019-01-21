@@ -3,9 +3,11 @@
     <h1>Categories</h1>
   </div>
   <div class="col-md-6">
-    <button type="submit" [disabled]="" class="btn btn-success mt-3" (click)="add()">
+    <button routerLink="/add-category" routerLinkActive="active"  type="submit" [disabled]="" class="btn  mt-3" (click)="add()">
       Add New
     </button>
+   
+
   </div>
 </div>
 <div class="col-sm-4">
@@ -17,34 +19,7 @@
     </div>
   </div>
 
-<div class="row">
 
-
-  <form (ngSubmit)="add()" #f="ngForm">
-    
-
-     <input type="text" class="form-control pull-right" id="search" placeholder="search">
-
-    <div class="form-group mb-0 pb-0">
-
-      <div class="col-md-12">
-          <label for ="name">Name</label>
-        <input type="text" class="form-control" id="name" name="name" [(ngModel)]="name" placeholder="Enter a New Name">
-      </div>
-    </div>
-
-    <div class="form-group mb-0 pb-0">
-
-      <div class="col-md-12">
-          <label for ="parent">Parent</label>
-        <input type="text" class="form-control" id="parent" name="parent" [(ngModel)]="parent" placeholder="Enter ">
-      </div>
-    </div>
-
-  </form>
-
-
-</div>
 
 
 
@@ -52,7 +27,7 @@
   <!--tabela glavna-->
   <div class="col-md-10">
 
-    <table class="table table-bordered">
+    <table class="table ">
       <thead>
         <tr>
 
@@ -64,9 +39,9 @@
       </thead>
       <tbody>
 
-        <tr *ngFor="let person of persons; let i = index">
+        <tr *ngFor="let person of categories; let i = index">
           <td>{{person.name}}</td>
-          <td>{{person.parent}}</td>
+          <td>{{person.parentCategoryId}}</td>
 
           <td>
             <a  class="btn btn-sm btn-warning">

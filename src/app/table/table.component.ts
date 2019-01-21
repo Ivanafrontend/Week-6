@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
+
+import { ServicesService } from '../services.service';
 
 @Component({
   selector: 'app-table',
@@ -11,21 +12,33 @@ export class TableComponent implements OnInit {
   msg: string = '';
   name:string;
   parent:string;
+  categories: any = [];
+  parentCategoryId: 0
  
-  constructor(private http: HttpClient) { }
+  constructor(public service: ServicesService) {
+    this.get();
+   }
 
- 
+   Categories = {'name': ''}
   
   ngOnInit() {
-    this.persons.getPersons(
-      .subscribe(data => this.persons = data);
-    )
+   
   };
 
- postData() {
-    this.http.post('http://127.0.0.1:3000/categories/', this.model)
+  get() {
+    this.service.getOnePost().subscribe(
+        data => {
+          this.categories = data
+        }
+    )
+       
   }
 
+
+  // getHeroes(): void {
+  //   this.heroService.getHeroes()
+  //       .subscribe(heroes => this.heroes = heroes);
+  // }
   persons = [
     {
       'name': 'Ivana',
@@ -44,7 +57,7 @@ export class TableComponent implements OnInit {
     this.msg = 'Successfully added';
     this.name = '';
     this.parent = '';
-    this.postData();
+    // this.postData();
 }
 
 

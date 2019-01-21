@@ -1,0 +1,58 @@
+<h1>Add Category</h1>
+<div class="row">
+
+  <div class="col-md-6">
+    <form (ngSubmit)="add()" #f="ngForm">
+
+      <div class="form-group mb-0 pb-0">
+
+        <div class="col-md-6">
+          <label for="name">Name</label>
+          <input type="text" class="form-control" id="name" name="name" [(ngModel)]="name" placeholder="Enter a New Name">
+        </div>
+      </div>
+
+      <div class="form-group mb-0 pb-0">
+
+        <div class="col-md-6">
+          <label for="parent">Parent category:</label>
+          <input type="text" class="form-control" id="parent" name="parent" [(ngModel)]="parent" placeholder="Options ">
+
+
+          <select class="form-control custom-select custom-select-lg mb-3 ">
+            <option selected>Options</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+        </div>
+      </div>
+
+      <div class=" form-group mb-0 pb-0">
+
+        <div class="col-md-12">
+          <label for="description">Description:</label>
+          <div class="input-group">
+
+            <textarea class="form-control" aria-label="With textarea"></textarea>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-10 col-sm-offset-2">
+          <button type="submit" class="btn btn-success mt-3" (click)="update()">
+            Save
+          </button>
+          <button type="submit" class="btn btn-success mt-3" (click)="delete()">
+            Cancel
+          </button>
+
+        </div>
+      </div>
+
+
+    </form>
+
+  </div>
+</div>
