@@ -3,23 +3,13 @@
     <h1>Categories</h1>
   </div>
   <div class="col-md-6">
-    <button routerLink="/add-category" routerLinkActive="active"  type="submit" [disabled]="" class="btn  mt-3" (click)="add()">
+    <button routerLink="/add-category" routerLinkActive="active"  type="submit" [disabled]="" class="btn  mt-3" >
       Add New
     </button>
-   
+
 
   </div>
 </div>
-<div class="col-sm-4">
-    <div class="alert alert-success alert-dismissable" *ngIf="msg">
-      <a href="#" class="close" (click)="closeAlert()">
-        &times;
-      </a>
-      {{msg}}
-    </div>
-  </div>
-
-
 
 
 
@@ -47,7 +37,7 @@
             <a  class="btn btn-sm btn-warning">
               Edit
             </a>
-            <a (click)="delete(i)" class="btn btn-sm btn-danger">
+            <a class="btn btn-sm btn-danger">
               Delete
             </a>
 

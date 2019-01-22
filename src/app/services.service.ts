@@ -10,9 +10,11 @@ import { Observable } from 'rxjs';
 export class ServicesService {
 
   constructor( private http: HttpClient ) { }
-  
-  getOnePost():Observable<any> {
-    return this.http.get("http://localhost:3000/categories");
-  }
 
-}
+  getPost(): Observable<any> {
+    return this.http.get('http://localhost:3000/categories');
+  }
+  createPost(post): Observable<any> {
+    return this.http.post('http://localhost:3000/categories', post);
+  }
+  }
