@@ -14,7 +14,16 @@ export class ServicesService {
   getPost(): Observable<any> {
     return this.http.get('http://localhost:3000/categories');
   }
-  createPost(post): Observable<any> {
-    return this.http.post('http://localhost:3000/categories', post);
+  // createPost(post): Observable<any> {
+    // return this.http.post('http://localhost:3000/categories', post);
+  // }
+
+  addCategory(category) {
+    return this.http.post('http://localhost:3000/categories', category);
+
+  }
+  deleteCategory(id) {
+    return this.http.delete('http://localhost:3000/categories' + '/' + id);
+
   }
   }

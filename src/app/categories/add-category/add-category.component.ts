@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ServicesService } from 'src/app/services.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-category',
@@ -7,42 +8,38 @@ import { ServicesService } from 'src/app/services.service';
   styleUrls: ['./add-category.component.scss']
 })
 export class AddCategoryComponent implements OnInit {
-
-
-
-  constructor(public service: ServicesService) {
-    this.get();
-
-    this.add();
-  }
-  msg = '';
   name: string;
-  parent: string;
+  parent: number;
+
   categories: any = [];
   parentCategoryId: 0;
   post: any[];
+  dataService: any;
+  parents: [];
+ category = {
+   'name' : '',
+   'parentCategoryId': 0
 
-  Categories = { name: '' };
+ };
+ ngOnInit() {
+   this.getParentt();
+ }
 
- ngOnInit() {}
+constructor(public service: ServicesService, public router: Router) {
+  }
+  onSubmit() {
+    this.category.name = this.name;
+    this.category.parentCategoryId = parseInt(this.parent) ;
+    this.service.addCategory(this.category).subscribe(user => {
+      console.log(this.category);
+     this.router.navigate(['/categories']);
 
-  get() {
+    });
+  }
+  getParentt() {
     this.service.getPost().subscribe(data => {
-      this.post = data;
-    });
-  }
+      this.parents = data ;
 
-   add() {
-    this.service.createPost(this.Categories).subscribe( data => {
-      this.categories = data;
     });
   }
-  update() {
-    this.service.updatePost(this.Categories).subscribe( (data: any) => {
-      this.categories = data;
-    });
-  }
-
 }
-
-

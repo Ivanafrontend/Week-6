@@ -1,10 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
-
 import { ServicesService } from '../services.service';
-
-
-
+import { post } from 'selenium-webdriver/http';
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
@@ -17,12 +13,14 @@ export class TableComponent implements OnInit {
   categories: any = [];
   parentCategoryId: 0;
   post: any[];
+  category = {
+    'name' : '',
+    'parentCategoryId': 0
+  };
 
   constructor(public service: ServicesService) {
     this.get();
-
-
-  }
+}
 
   Categories = { name: '' };
 
@@ -33,16 +31,32 @@ export class TableComponent implements OnInit {
       this.post = data;
     });
   }
+  onDeleteClick(id) {
+      this.service.deleteCategory(id).subscribe(user => {
+        this.get();
 
-   add() {
-    this.service.createPost(this.Categories).subscribe( data => {
-      this.categories = data;
-    });
-  }
-  update() {
-    this.service.updatePost(this.Categories).subscribe( data => {
-      this.categories = data;
-    });
-  }
+       });
+      }
 
-}
+  // onDeleteClick() {
+  //   this.service.deleteCategory(post).subscribe(user => {
+  //     const index = this.post.indexOf(post);
+  //     this.post.splice(index, 1);
+
+
+
+  //   });
+  // }
+
+   // add() {
+    // this.service.createPost(this.Categories).subscribe( data => {
+      // this.categories = data;
+   // });
+  }
+  // update() {
+    // this.service.updatePost(this.Categories).subscribe( data => {
+      // this.categories = data;
+    // });
+  // }
+
+//
