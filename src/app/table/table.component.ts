@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ServicesService } from '../services.service';
 import { post } from 'selenium-webdriver/http';
+
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
@@ -10,11 +11,14 @@ export class TableComponent implements OnInit {
   msg = '';
   name: string;
   parent: string;
+  description: string;
   categories: any = [];
   parentCategoryId: 0;
   post: any[];
   category = {
     'name' : '',
+    'description' : '',
+
     'parentCategoryId': 0
   };
 
@@ -22,7 +26,7 @@ export class TableComponent implements OnInit {
     this.get();
 }
 
-  Categories = { name: '' };
+  Categories = { name: '', description: '' };
 
   ngOnInit() {}
 

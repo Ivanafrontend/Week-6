@@ -21,19 +21,23 @@
         <tr>
           <th>Name</th>
           <th>Parent Category</th>
+          <th>Description</th>
           <th>Actions</th>
+
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let category of post; let i = index">
           <td>{{ category.name }}</td>
+          <td>{{ category.description }}</td>
           <td>{{ category.parentCategoryId }}</td>
 
           <td>
-            <button (click)="onDeleteClick(category.id)">deleteee</button>
+            <button (click)="onDeleteClick(category.id)">delete</button>
 
-            <a class="btn btn-sm btn-warning"> Edit </a>
-            <a class="btn btn-sm btn-danger"> Delete </a>
+            <button [routerLink]="['/Edit', i]"> edit </button>
+
+
           </td>
         </tr>
       </tbody>

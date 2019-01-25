@@ -9,7 +9,8 @@ import { Router } from '@angular/router';
 })
 export class AddCategoryComponent implements OnInit {
   name: string;
-  parent: number;
+  parid: number;
+  message: string;
 
   categories: any = [];
   parentCategoryId: 0;
@@ -18,7 +19,8 @@ export class AddCategoryComponent implements OnInit {
   parents: [];
  category = {
    'name' : '',
-   'parentCategoryId': 0
+   'parentCategoryId': 0,
+   'message': ''
 
  };
  ngOnInit() {
@@ -28,8 +30,9 @@ export class AddCategoryComponent implements OnInit {
 constructor(public service: ServicesService, public router: Router) {
   }
   onSubmit() {
+    this.category.message = this.message;
     this.category.name = this.name;
-    this.category.parentCategoryId = parseInt(this.parent) ;
+    this.category.parentCategoryId = (this.parid) ;
     this.service.addCategory(this.category).subscribe(user => {
       console.log(this.category);
      this.router.navigate(['/categories']);

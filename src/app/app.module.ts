@@ -12,7 +12,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { AddCategoryComponent } from './categories/add-category/add-category.component';
 import { EditCategoryComponent } from './categories/edit-category/edit-category.component';
 import { ServicesService } from './services.service';
-
+import { EditWithParametarComponent } from './edit-with-parametar/edit-with-parametar.component';
+import { HomeComponent } from './home/home.component';
+// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+// import { CommonModule } from '@angular/common';
+// import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -23,7 +27,12 @@ import { ServicesService } from './services.service';
     TableComponent,
     ShopingListComponent,
     AddCategoryComponent,
-    EditCategoryComponent
+    EditCategoryComponent,
+    EditWithParametarComponent,
+    HomeComponent,
+    // CommonModule,
+    // BrowserAnimationsModule,
+    // ToastrModule.forRoot()
   ],
   imports: [
     BrowserModule,
